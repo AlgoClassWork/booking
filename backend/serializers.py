@@ -32,7 +32,7 @@ class BookingSerializer(serializers.ModelSerializer):
             end_time__gt = start_time
         )
 
-        if self.isinstance:
+        if self.instance:
             overlapping_bookings = overlapping_bookings.exclude(pk=self.instance.pk)
 
         if overlapping_bookings.exists():
