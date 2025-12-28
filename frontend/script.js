@@ -21,3 +21,30 @@ async function login() {
     }
 }
 
+
+async function loadRooms() {
+    const response = await fetch(`${API_BASE}/rooms/`)
+    const rooms = await response.json()
+
+    const roomsDiv = document.getElementById('rooms')
+    const select = document.getElementById('room-select')
+
+    //roomsDiv.innerHTML = ''
+    //select.innerHTML = ''
+
+    rooms.forEach(room => {
+        roomsDiv.innerHTML += `
+        <div class="room-card">
+            <h3>${room.name}</h3>
+            <p>Вместимость: ${room.capacity}</p>
+            <p>Локация: ${room.location}</p>
+        </div>
+        `
+    const opt = document.createElement('option')
+    opt.value = room.id 
+    opt.innerText = room.name
+    select.appendChild(opt)
+    });
+}
+
+loadRooms()
