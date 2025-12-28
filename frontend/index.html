@@ -10,9 +10,36 @@
     
     <h1> Бронирование помещений </h1>
     
+    <div id="auth-section">
         <input type="text" id="username" placeholder="Логин:">
         <input type="password" id="password" placeholder="Пароль">
         <button> Войти </button>
+        <span id="auth-status"></span>
+    </div>
+
+    <div class="main-content">
+
+        <div class="rooms-list">
+            <h2> Список комнат </h2>
+            <div id="rooms"> Загрузка . . . </div>
+        </div>
+
+        <div class="booking-form">
+            <h2> Забронировать </h2>
+            <select id="room-select"></select>
+            <input type="datetime-local" id="start-time">
+            <input type="datetime-local" id="end-time">
+            <input type="text" id="purpose" placeholder="Цель встречи">
+            <button> Забронировать </button> 
+            <div id="booking-message"> </div>
+        </div>
+
+        <div class="booking-list">
+            <h2> Текущие бронирования </h2>
+            <div id="bookings"></div>
+        </div>
+
+    </div>
     
 </body>
 </html>
